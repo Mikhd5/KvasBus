@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#092b55" />
+  <meta name="description" content="KvasBus — пасажирські перевезення між Україною та Чехією. Виїзди з України у вівторок та суботу, з Чехії — у четвер та неділю. Залиште заявку або зв'яжіться з перевізником." />
+  <meta property="og:title" content="KvasBus — Україна ⇄ Чехія" />
+  <meta property="og:description" content="Пасажирські перевезення між Україною та Чехією. Зручний графік і прямий зв'язок із перевізником." />
+  <meta property="og:type" content="website" />
+  <title>KvasBus — пасажирські перевезення Україна ⇄ Чехія</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preload" as="image" href="assets/hero-sprinter.webp" fetchpriority="high" />
+  <style>
+    :root {
+      --navy: #08284f;
+      --navy-2: #0b376a;
+      --blue: #1768ad;
+      --blue-2: #2786cb;
+      --sky: #eaf4ff;
+      --ice: #f4f8fc;
+      --paper: #fbfcfe;
+      --ink: #112d4e;
+      --muted: #687d94;
+      --yellow: #ffd34e;
+      --yellow-2: #f4b91f;
+      --red: #d6474d;
+      --white: #fff;
+      --line: rgba(14, 54, 94, .11);
+      --shadow: 0 24px 70px rgba(7, 39, 76, .12);
+      --shadow-soft: 0 14px 38px rgba(7, 39, 76, .08);
+      --r-sm: 18px;
+      --r-md: 26px;
+      --r-lg: 36px;
+      --max: 1200px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: Inter, Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    body.menu-open { overflow: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid rgba(39, 134, 203, .4); outline-offset: 3px; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .skip-link { position: absolute; left: 14px; top: -60px; z-index: 100; padding: 12px 16px; border-radius: 12px; background: #fff; color: var(--navy); box-shadow: var(--shadow); }
+    .skip-link:focus { top: 14px; }
+    .topbar { position: relative; z-index: 31; background: #082448; color: rgba(255,255,255,.8); font-size: 11px; letter-spacing: .025em; }
+    .topbar-inner { min-height: 36px; display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+    .topbar-note, .topbar-contact { display: flex; align-items: center; gap: 9px; }
+    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #5ed5a0; box-shadow: 0 0 0 4px rgba(94,213,160,.13); }
+    .topbar strong { color: white; font-weight: 800; }
+    .site-header { position: sticky; top: 0; z-index: 30; background: rgba(255,255,255,.91); border-bottom: 1px solid rgba(10,48,88,.07); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; min-width: max-content; }
+    .brand-symbol { position: relative; display: grid; place-items: center; width: 49px; height: 49px; border-radius: 17px 17px 17px 7px; color: white; background: linear-gradient(145deg,#1769ac,#08284f); box-shadow: 0 10px 24px rgba(13,78,145,.18); font-weight: 900; font-size: 20px; letter-spacing: -.08em; overflow: hidden; }
+    .brand-symbol::after { content: ""; position: absolute; width: 29px; height: 7px; right: -4px; bottom: 8px; border-radius: 99px; background: var(--yellow); transform: rotate(-37deg); }
+    .brand-title { display: block; color: var(--navy); font-weight: 900; font-size: 20px; letter-spacing: -.065em; line-height: 1; }
+    .brand-title span { color: var(--blue); }
+    .brand-subtitle { display: block; margin-top: 5px; color: #8292a5; font-weight: 800; font-size: 9px; letter-spacing: .15em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: clamp(14px, 2.1vw, 29px); color: #53677e; font-size: 12px; font-weight: 800; }
+    .nav-links a { position: relative; padding: 12px 0; transition: color .2s ease; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 5px; height: 2px; border-radius: 4px; background: var(--yellow-2); transition: right .25s ease; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links a:hover::after { right: 0; }
+    .nav-actions { display: flex; align-items: center; gap: 16px; }
+    .phone-link { white-space: nowrap; font-size: 12px; font-weight: 900; color: var(--navy); }
+    .btn { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 10px; border: 1px solid transparent; border-radius: 999px; padding: 13px 21px; font-size: 12px; font-weight: 900; cursor: pointer; transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: #142b43; background: linear-gradient(135deg,#ffe27c,#ffc52f); box-shadow: 0 10px 24px rgba(245,190,44,.24); }
+    .btn-primary:hover { background: linear-gradient(135deg,#ffea9c,#ffd04e); box-shadow: 0 15px 30px rgba(245,190,44,.3); }
+    .btn-blue { color: white; background: linear-gradient(135deg,#1c75bb,#0b4d8a); box-shadow: 0 11px 25px rgba(13,78,145,.18); }
+    .btn-blue:hover { background: linear-gradient(135deg,#155f9d,#083b70); }
+    .btn-outline { color: var(--navy); border-color: rgba(14,54,94,.17); background: rgba(255,255,255,.68); }
+    .btn-outline:hover { border-color: rgba(14,100,173,.4); background: white; }
+    .btn svg { width: 16px; height: 16px; flex: 0 0 auto; }
+    .menu-toggle { display: none; width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 16px; background: white; color: var(--navy); font-size: 21px; cursor: pointer; }
+
+    /* HERO */
+    .hero { position: relative; isolation: isolate; overflow: hidden; padding: 68px 0 82px; background: linear-gradient(118deg,#eaf4ff 0%,#f7faff 48%,#fff9e9 100%); }
+    .hero::before { content: ""; position: absolute; z-index: -1; width: 760px; height: 760px; right: -260px; top: -360px; border-radius: 50%; background: radial-gradient(circle,rgba(255,211,78,.35),rgba(255,211,78,0) 68%); }
+    .hero::after { content: ""; position: absolute; z-index: -1; inset: 0; opacity: .22; background-image: radial-gradient(rgba(20,82,137,.18) .7px,transparent .7px); background-size: 19px 19px; mask-image: linear-gradient(90deg,black,transparent 70%); pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: clamp(34px,5vw,68px); }
+    .hero-copy { position: relative; z-index: 2; padding: 8px 0; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 8px 14px; border: 1px solid rgba(22,105,174,.12); border-radius: 999px; color: #1768ad; background: rgba(255,255,255,.82); box-shadow: 0 7px 20px rgba(9,38,75,.045); font-size: 10px; font-weight: 900; letter-spacing: .075em; text-transform: uppercase; }
+    .eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: #2fc18a; box-shadow: 0 0 0 4px rgba(47,193,138,.12); }
+    h1 { max-width: 590px; margin: 22px 0 16px; color: var(--navy); font-size: clamp(46px,5.1vw,70px); font-weight: 900; line-height: .99; letter-spacing: -.075em; }
+    h1 .blue { color: #1a72ba; }
+    h1 .period { color: #9bb5cc; }
+    .hero-lead { max-width: 490px; margin: 0; color: #647a91; font-size: 15px; line-height: 1.85; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 26px; }
+    .hero-actions .btn { min-height: 52px; padding-inline: 23px; }
+    .hero-proof { display: flex; align-items: center; gap: 11px; margin-top: 25px; color: #6e8298; font-size: 11px; font-weight: 700; }
+    .proof-check { display: grid; place-items: center; width: 30px; height: 30px; flex: 0 0 auto; border-radius: 50%; background: #e3f5ec; color: #249566; font-weight: 900; }
+    .hero-visual { min-height: 525px; position: relative; isolation: isolate; }
+    .hero-glow { position: absolute; z-index: -1; inset: 7% -5% 0 8%; border-radius: 48px; background: linear-gradient(140deg,rgba(44,122,181,.16),rgba(255,214,94,.3)); filter: blur(32px); }
+    .hero-photo { position: absolute; inset: 0 0 29px 12px; overflow: hidden; border-radius: 40px 40px 40px 13px; background: #8eaac0; box-shadow: 0 36px 85px rgba(5,34,67,.22); }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 52% center; }
+    .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,rgba(5,29,57,0) 52%,rgba(5,29,57,.55) 100%),linear-gradient(90deg,rgba(5,29,57,.1),transparent 45%); }
+    .photo-caption { position: absolute; z-index: 1; top: 24px; left: 24px; right: auto; bottom: auto; display: flex; justify-content: space-between; align-items: center; gap: 14px; max-width: calc(100% - 145px); padding: 11px 14px; border: 1px solid rgba(255,255,255,.22); border-radius: 16px; color: white; background: rgba(7,35,67,.55); backdrop-filter: blur(13px); -webkit-backdrop-filter: blur(13px); }
+    .photo-caption strong { display: block; font-size: 20px; letter-spacing: -.045em; }
+    .photo-caption span { display: block; margin-top: 3px; color: rgba(255,255,255,.78); font-size: 10px; }
+    .photo-flags { padding: 9px 13px; border: 1px solid rgba(255,255,255,.3); border-radius: 99px; background: rgba(255,255,255,.14); backdrop-filter: blur(12px); white-space: nowrap; font-size: 12px; }
+    .floating-route { position: absolute; z-index: 3; left: -28px; bottom: 0; width: min(280px,72%); padding: 17px 19px; border: 1px solid rgba(255,255,255,.85); border-radius: 22px; background: rgba(255,255,255,.94); box-shadow: 0 18px 48px rgba(8,40,79,.17); backdrop-filter: blur(14px); }
+    .route-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #7c8da0; font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: .09em; }
+    .route-track { position: relative; height: 1px; margin: 14px 0 12px; background: #e4ebf2; }
+    .route-track::before,.route-track::after { content: ""; position: absolute; top: -4px; width: 9px; height: 9px; border: 2px solid white; border-radius: 50%; background: var(--blue-2); box-shadow: 0 0 0 1px #bdd8ef; }
+    .route-track::before { left: 0; }.route-track::after { right: 0; background: var(--yellow-2); box-shadow: 0 0 0 1px #f5df9f; }
+    .route-names { display: flex; justify-content: space-between; gap: 12px; color: var(--navy); font-size: 12px; font-weight: 900; }
+    .route-names small { display: block; margin-top: 3px; color: #8796a7; font-size: 9px; font-weight: 700; }
+    .round-stamp { position: absolute; z-index: 4; top: 28px; right: -17px; display: grid; place-items: center; width: 94px; height: 94px; padding: 15px; border: 5px solid rgba(255,255,255,.42); border-radius: 50%; color: #263d54; background: linear-gradient(145deg,#ffe784,#ffca38); box-shadow: 0 15px 35px rgba(8,40,79,.18); text-align: center; font-size: 9px; font-weight: 1000; line-height: 1.35; transform: rotate(8deg); }
+
+    /* TRUST STRIP */
+    .trust-section { position: relative; z-index: 4; margin-top: -1px; padding: 0 0 55px; background: linear-gradient(180deg,#f7faff 0%,#fbfcfe 100%); }
+    .trust-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; padding: 17px 15px; border: 1px solid rgba(17,67,111,.09); border-radius: 25px; background: rgba(255,255,255,.94); box-shadow: 0 18px 50px rgba(8,40,79,.075); }
+    .trust-item { display: flex; align-items: center; gap: 13px; padding: 9px 21px; border-right: 1px solid #edf1f6; }
+    .trust-item:last-child { border: 0; }
+    .icon-tile { display: grid; place-items: center; width: 43px; height: 43px; flex: 0 0 auto; border-radius: 15px; color: var(--blue); background: linear-gradient(145deg,#f0f7ff,#e5f1fc); }
+    .icon-tile svg { width: 20px; height: 20px; }
+    .trust-item strong { display: block; color: var(--navy); font-size: 12px; font-weight: 900; }
+    .trust-item small { display: block; margin-top: 3px; color: #8797a9; font-size: 10px; }
+
+    /* COMMON SECTION */
+    section.content-section { padding: 92px 0; }
+    .section-heading { max-width: 730px; margin-bottom: 37px; }
+    .section-eyebrow { margin-bottom: 11px; color: #1b72b6; font-size: 10px; font-weight: 1000; letter-spacing: .16em; text-transform: uppercase; }
+    h2 { margin: 0; color: var(--navy); font-size: clamp(31px,3.5vw,45px); font-weight: 900; line-height: 1.1; letter-spacing: -.06em; }
+    .section-heading p { max-width: 650px; margin: 15px 0 0; color: #708399; font-size: 13px; line-height: 1.85; }
+    .section-heading.center { margin-inline: auto; text-align: center; }
+    .section-heading.center p { margin-inline: auto; }
+
+    /* SCHEDULE */
+    .schedule-section { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(135deg,#f1f7fd 0%,#f8fbff 58%,#fff8e8 100%); }
+    .schedule-section::before { content: ""; position: absolute; z-index: -1; width: 580px; height: 580px; left: -290px; top: 7%; border: 1px solid rgba(30,107,171,.08); border-radius: 50%; box-shadow: 0 0 0 45px rgba(30,107,171,.025),0 0 0 95px rgba(30,107,171,.02); }
+    .schedule-layout { display: grid; grid-template-columns: .75fr 1.25fr; gap: 23px; align-items: stretch; }
+    .schedule-intro { position: relative; isolation: isolate; overflow: hidden; display: flex; min-height: 340px; flex-direction: column; justify-content: space-between; padding: 31px; border-radius: 32px 32px 32px 12px; color: white; background: linear-gradient(145deg,#08284f,#0d4b80); box-shadow: 0 22px 50px rgba(8,40,79,.16); }
+    .schedule-intro::before { content: ""; position: absolute; z-index: -1; width: 340px; height: 340px; right: -160px; top: -130px; border: 1px solid rgba(255,255,255,.17); border-radius: 50%; box-shadow: 0 0 0 32px rgba(255,255,255,.035),0 0 0 72px rgba(255,255,255,.025); }
+    .schedule-intro::after { content: ""; position: absolute; z-index: -1; inset: auto 0 0; height: 46%; background: linear-gradient(0deg,rgba(5,24,49,.3),transparent); }
+    .intro-label { color: #9fc7e8; font-size: 10px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    .schedule-intro h3 { max-width: 330px; margin: 13px 0 10px; font-size: clamp(25px,2.5vw,34px); line-height: 1.15; letter-spacing: -.055em; }
+    .schedule-intro p { max-width: 340px; margin: 0; color: #c4d8e9; font-size: 12px; line-height: 1.8; }
+    .mini-route { display: flex; align-items: center; gap: 13px; color: white; font-size: 11px; font-weight: 900; }
+    .mini-route .route-dash { flex: 1; height: 1px; border-top: 1px dashed rgba(255,255,255,.45); }
+    .schedule-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+    .schedule-card { position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 340px; padding: 27px; border: 1px solid rgba(15,61,105,.1); border-radius: 29px; background: rgba(255,255,255,.94); box-shadow: 0 16px 42px rgba(8,40,79,.065); transition: transform .25s ease,box-shadow .25s ease; }
+    .schedule-card:hover { transform: translateY(-5px); box-shadow: 0 23px 48px rgba(8,40,79,.11); }
+    .schedule-card::after { content: ""; position: absolute; width: 170px; height: 170px; right: -83px; top: -83px; border-radius: 50%; background: rgba(29,119,190,.065); }
+    .schedule-card.cz::after { background: rgba(214,71,77,.055); }
+    .card-top { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .flag-chip { display: inline-grid; place-items: center; width: 49px; height: 49px; flex: 0 0 auto; border-radius: 17px; background: #edf5fd; font-size: 24px; box-shadow: inset 0 0 0 1px rgba(22,105,174,.06); }
+    .schedule-card.cz .flag-chip { background: #fff1ef; }
+    .direction-tag { color: #7f91a4; font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; text-align: right; }
+    .schedule-card h3 { position: relative; z-index: 1; margin: 22px 0 5px; color: var(--navy); font-size: 21px; font-weight: 900; letter-spacing: -.05em; }
+    .schedule-card p { margin: 0; color: #8999aa; font-size: 11px; }
+    .day-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 23px; }
+    .day { display: inline-flex; align-items: center; gap: 7px; padding: 10px 13px; border: 1px solid rgba(21,100,169,.12); border-radius: 999px; color: #145b99; background: #f1f7fd; font-size: 11px; font-weight: 900; }
+    .day::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #2683c5; }
+    .schedule-card.cz .day { border-color: rgba(214,71,77,.13); color: #a8383d; background: #fff4f2; }
+    .schedule-card.cz .day::before { background: #d6474d; }
+    .schedule-foot { display: flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 23px; color: #7c8da0; font-size: 10px; font-weight: 800; }
+    .schedule-foot .foot-dot { width: 7px; height: 7px; border-radius: 50%; background: #28b17b; box-shadow: 0 0 0 4px rgba(40,177,123,.12); }
+
+    /* ABOUT */
+    .about-section { position: relative; overflow: hidden; background: #fff; }
+    .about-section::after { content: ""; position: absolute; z-index: 0; width: 500px; height: 500px; right: -270px; bottom: -240px; border-radius: 50%; background: radial-gradient(circle,rgba(255,211,78,.14),transparent 70%); pointer-events: none; }
+    .about-grid { position: relative; z-index: 1; display: grid; grid-template-columns: .95fr 1.05fr; align-items: center; gap: clamp(36px,5vw,68px); }
+    .about-visual { position: relative; min-height: 470px; }
+    .about-photo { position: absolute; inset: 0 24px 24px 0; overflow: hidden; border-radius: 37px 37px 37px 12px; background: #a9c5d9; box-shadow: var(--shadow); }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .about-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,transparent 47%,rgba(5,28,55,.55)); }
+    .about-caption { position: absolute; z-index: 1; left: 25px; right: 25px; bottom: 23px; color: white; }
+    .about-caption strong { display: block; font-size: 19px; letter-spacing: -.045em; }
+    .about-caption span { color: rgba(255,255,255,.8); font-size: 11px; }
+    .about-stamp { position: absolute; right: 0; bottom: 0; display: flex; align-items: center; gap: 12px; padding: 17px 20px; border: 1px solid rgba(15,61,105,.09); border-radius: 21px; background: white; box-shadow: 0 16px 40px rgba(8,40,79,.13); }
+    .about-stamp .stamp-icon { display: grid; place-items: center; width: 39px; height: 39px; border-radius: 13px; background: #fff4d2; color: #a97800; font-size: 19px; }
+    .about-stamp strong { display: block; color: var(--navy); font-size: 11px; }
+    .about-stamp small { color: #8796a7; font-size: 9px; }
+    .about-copy .section-eyebrow { margin-bottom: 12px; }
+    .about-copy p { margin: 17px 0 0; color: #708399; font-size: 13px; line-height: 1.9; }
+    .about-points { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 27px; }
+    .about-point { display: flex; align-items: flex-start; gap: 11px; padding: 14px; border: 1px solid #edf1f5; border-radius: 19px; background: #fbfdff; }
+    .about-point-icon { display: grid; place-items: center; width: 34px; height: 34px; flex: 0 0 auto; border-radius: 12px; color: #1768ad; background: #edf5fd; }
+    .about-point-icon svg { width: 17px; height: 17px; }
+    .about-point strong { display: block; margin-top: 1px; color: var(--navy); font-size: 11px; }
+    .about-point small { display: block; margin-top: 3px; color: #8998a8; font-size: 9px; line-height: 1.5; }
+
+    /* FLEET */
+    .fleet-section { position: relative; isolation: isolate; overflow: hidden; color: white; background: linear-gradient(135deg,#071f3d 0%,#0a3766 56%,#092849 100%); }
+    .fleet-section::before { content: ""; position: absolute; z-index: -1; width: 650px; height: 650px; right: -300px; top: -320px; border: 1px solid rgba(255,255,255,.09); border-radius: 50%; box-shadow: 0 0 0 55px rgba(255,255,255,.025),0 0 0 115px rgba(255,255,255,.018); }
+    .fleet-section::after { content: ""; position: absolute; z-index: -1; inset: auto 0 0; height: 30%; background: linear-gradient(0deg,rgba(0,0,0,.14),transparent); }
+    .fleet-section .section-eyebrow { color: var(--yellow); }
+    .fleet-section h2 { color: white; }
+    .fleet-section .section-heading p { color: #b5cce0; }
+    .fleet-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+    .fleet-card { position: relative; min-height: 390px; overflow: hidden; border: 1px solid rgba(255,255,255,.16); border-radius: 32px; background: #173d62; box-shadow: 0 20px 55px rgba(0,0,0,.17); }
+    .fleet-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+    .fleet-card:hover img { transform: scale(1.045); }
+    .fleet-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,rgba(4,22,43,.02) 34%,rgba(4,22,43,.82) 100%); }
+    .fleet-card-content { position: absolute; z-index: 1; left: 27px; right: 27px; bottom: 25px; }
+    .fleet-label { color: #f8d66d; font-size: 9px; font-weight: 1000; text-transform: uppercase; letter-spacing: .15em; }
+    .fleet-card h3 { margin: 7px 0 3px; color: white; font-size: 23px; letter-spacing: -.05em; }
+    .fleet-card p { margin: 0; color: rgba(255,255,255,.78); font-size: 11px; }
+    .fleet-note { margin: 16px 0 0; color: #9eb8d1; font-size: 10px; line-height: 1.7; }
+
+    /* BOOKING */
+    .booking-section { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(135deg,#f4f8fd 0%,#fff 55%,#fff8e8 100%); }
+    .booking-section::before { content: ""; position: absolute; z-index: -1; width: 660px; height: 660px; left: -330px; bottom: -360px; border: 1px solid rgba(22,105,174,.1); border-radius: 50%; box-shadow: 0 0 0 55px rgba(22,105,174,.025),0 0 0 110px rgba(22,105,174,.018); }
+    .booking-wrap { position: relative; isolation: isolate; overflow: hidden; display: grid; grid-template-columns: .84fr 1.16fr; gap: 40px; padding: 43px; border: 1px solid rgba(255,255,255,.16); border-radius: 36px; color: white; background: linear-gradient(135deg,#08284f 0%,#0d4b80 100%); box-shadow: 0 26px 70px rgba(8,40,79,.2); }
+    .booking-wrap::before { content: ""; position: absolute; z-index: -1; width: 420px; height: 420px; left: -200px; bottom: -300px; border: 1px solid rgba(255,255,255,.15); border-radius: 50%; box-shadow: 0 0 0 45px rgba(255,255,255,.03),0 0 0 95px rgba(255,255,255,.022); }
+    .booking-info { position: relative; z-index: 1; padding: 8px 0; }
+    .booking-info .section-eyebrow { color: var(--yellow); }
+    .booking-info h2 { color: white; }
+    .booking-info p { max-width: 380px; margin: 16px 0 27px; color: #c4d7e8; font-size: 12px; line-height: 1.85; }
+    .booking-contact { display: flex; flex-direction: column; gap: 12px; }
+    .contact-line { display: flex; align-items: center; gap: 11px; color: white; font-size: 12px; font-weight: 800; }
+    .contact-icon { display: grid; place-items: center; width: 37px; height: 37px; flex: 0 0 auto; border: 1px solid rgba(255,255,255,.15); border-radius: 13px; background: rgba(255,255,255,.1); }
+    .booking-form { position: relative; z-index: 1; padding: 27px; border: 1px solid rgba(255,255,255,.78); border-radius: 28px; color: var(--ink); background: rgba(255,255,255,.98); box-shadow: 0 20px 48px rgba(0,0,0,.15); }
+    .form-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; margin-bottom: 19px; }
+    .form-heading h3 { margin: 0; color: var(--navy); font-size: 18px; font-weight: 900; letter-spacing: -.045em; }
+    .form-heading p { margin: 4px 0 0; color: #8796a8; font-size: 10px; }
+    .form-step { padding: 7px 10px; border-radius: 99px; color: #1c6dad; background: #edf6ff; font-size: 9px; font-weight: 900; white-space: nowrap; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+    .field { display: flex; min-width: 0; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1/-1; }
+    .field label { color: #6f8297; font-size: 10px; font-weight: 900; }
+    .field input,.field select,.field textarea { width: 100%; min-height: 45px; padding: 11px 13px; border: 1px solid #e2eaf2; border-radius: 13px; outline: none; color: var(--navy); background: #f8fbfe; font-size: 11px; transition: border-color .2s,box-shadow .2s,background .2s; }
+    .field input::placeholder,.field textarea::placeholder { color: #a0adbb; }
+    .field input:focus,.field select:focus,.field textarea:focus { border-color: #76b3e0; background: white; box-shadow: 0 0 0 4px rgba(39,134,203,.1); }
+    .field textarea { min-height: 72px; resize: vertical; }
+    .form-submit { width: 100%; margin-top: 16px; min-height: 49px; }
+    .form-hint { margin: 10px 4px 0; color: #8b98a8; font-size: 9px; line-height: 1.6; text-align: center; }
+    .form-error { display: none; margin-top: 10px; padding: 10px 12px; border-radius: 12px; color: #a52e36; background: #fff0f1; font-size: 10px; }
+    .form-error.show { display: block; }
+
+    /* FAQ */
+    .faq-section { background: #fff; }
+    .faq-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 45px; align-items: start; }
+    .faq-aside { position: sticky; top: 120px; padding: 31px; border: 1px solid var(--line); border-radius: 30px 30px 30px 12px; background: linear-gradient(145deg,#f1f7fd,#fff); }
+    .faq-bubble { display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 20px; border-radius: 18px; color: #9a7100; background: #fff1bf; font-size: 21px; }
+    .faq-aside h3 { margin: 0; color: var(--navy); font-size: 23px; line-height: 1.18; letter-spacing: -.055em; }
+    .faq-aside p { margin: 13px 0 22px; color: #7b8da1; font-size: 11px; line-height: 1.8; }
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    details { border: 1px solid #e9eef4; border-radius: 18px; background: #fff; transition: border-color .2s,box-shadow .2s; }
+    details[open] { border-color: rgba(25,110,181,.2); box-shadow: 0 10px 28px rgba(8,40,79,.055); }
+    summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 17px 19px; color: var(--navy); font-size: 12px; font-weight: 900; cursor: pointer; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; display: grid; place-items: center; width: 27px; height: 27px; flex: 0 0 auto; border-radius: 50%; color: #1768ad; background: #edf5fd; font-size: 17px; font-weight: 500; }
+    details[open] summary::after { content: "−"; color: #876300; background: #fff1c9; }
+    details p { margin: 0; padding: 0 19px 18px; color: #74879b; font-size: 11px; line-height: 1.85; }
+
+    /* FOOTER */
+    .site-footer { padding: 48px 0 23px; color: white; background: #061d39; }
+    .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 35px; padding-bottom: 34px; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .footer-brand .brand-title { color: white; }
+    .footer-brand .brand-subtitle { color: #8ba3bc; }
+    .footer-brand p { max-width: 310px; margin: 16px 0 0; color: #9eb2c7; font-size: 10px; line-height: 1.8; }
+    .footer-links { display: flex; gap: clamp(28px,5vw,70px); }
+    .footer-col strong { display: block; margin-bottom: 13px; color: white; font-size: 11px; }
+    .footer-col a { display: block; margin: 9px 0; color: #9eb2c7; font-size: 10px; transition: color .2s; }
+    .footer-col a:hover { color: var(--yellow); }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 16px; padding-top: 20px; color: #718ba5; font-size: 9px; }
+    .floating-contact { position: fixed; z-index: 29; right: 22px; bottom: 22px; display: flex; flex-direction: column; gap: 9px; }
+    .floating-contact a { display: grid; place-items: center; width: 49px; height: 49px; border: 1px solid rgba(255,255,255,.6); border-radius: 17px; color: white; background: #1687c7; box-shadow: 0 10px 27px rgba(8,40,79,.18); transition: transform .2s; }
+    .floating-contact a.phone-float { color: #17334f; background: var(--yellow); }
+    .floating-contact a:hover { transform: translateY(-3px); }
+    .floating-contact svg { width: 20px; height: 20px; }
+    .toast { position: fixed; z-index: 80; left: 50%; bottom: 24px; max-width: calc(100% - 30px); padding: 13px 18px; border-radius: 999px; color: white; background: #092b55; box-shadow: var(--shadow); font-size: 11px; opacity: 0; pointer-events: none; transform: translate(-50%,14px); transition: opacity .25s,transform .25s; }
+    .toast.show { opacity: 1; transform: translate(-50%,0); }
+    .reveal { opacity: 1; transform: none; transition: opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1); }
+    .js .reveal { opacity: 0; transform: translateY(22px); }
+    .js .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 1040px) {
+      .nav { gap: 18px; }
+      .nav-links { gap: 14px; }
+      .phone-link { display: none; }
+      .hero-grid { gap: 35px; }
+      .hero-visual { min-height: 480px; }
+      .trust-item { padding-inline: 12px; }
+      .schedule-layout { grid-template-columns: 1fr; }
+      .schedule-intro { min-height: 245px; }
+      .about-grid { gap: 36px; }
+      .booking-wrap { gap: 25px; padding: 32px; }
+      .faq-grid { gap: 27px; }
+    }
+    @media (max-width: 760px) {
+      html { scroll-padding-top: 82px; }
+      .container { width: min(100% - 32px, 590px); }
+      .topbar-inner { min-height: 33px; justify-content: center; font-size: 9px; }
+      .topbar-contact { display: none; }
+      .nav { min-height: 70px; }
+      .brand-symbol { width: 43px; height: 43px; border-radius: 15px 15px 15px 6px; }
+      .brand-title { font-size: 18px; }
+      .brand-subtitle { font-size: 8px; }
+      .nav-actions { gap: 10px; }
+      .nav-actions .btn { display: none; }
+      .menu-toggle { display: grid; place-items: center; }
+      .nav-links { position: absolute; display: none; top: 70px; left: 16px; right: 16px; padding: 12px; border: 1px solid rgba(14,54,94,.1); border-radius: 20px; background: rgba(255,255,255,.98); box-shadow: var(--shadow); flex-direction: column; align-items: stretch; gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 13px 11px; border-bottom: 1px solid #eef2f6; }
+      .nav-links a:last-child { border: 0; }
+      .nav-links a::after { display: none; }
+      .hero { padding: 38px 0 65px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 31px; }
+      h1 { max-width: 520px; margin: 18px 0 14px; font-size: clamp(43px,11vw,61px); }
+      .hero-lead { max-width: 560px; font-size: 13px; }
+      .hero-actions { margin-top: 21px; }
+      .hero-actions .btn { flex: 1 1 145px; min-height: 49px; padding-inline: 14px; }
+      .hero-proof { align-items: flex-start; margin-top: 20px; font-size: 10px; }
+      .hero-visual { min-height: clamp(320px,85vw,440px); margin: 0 8px 0 8px; }
+      .hero-photo { inset: 0 0 28px; border-radius: 29px 29px 29px 10px; }
+      .photo-caption { top: 16px; left: 16px; right: auto; bottom: auto; max-width: calc(100% - 105px); padding: 9px 10px; gap: 8px; }
+      .photo-caption strong { font-size: 15px; }
+      .photo-caption span { font-size: 8px; }
+      .photo-flags { padding: 7px 10px; font-size: 10px; }
+      .floating-route { left: -7px; width: 224px; padding: 14px 15px; border-radius: 18px; }
+      .round-stamp { top: 15px; right: -9px; width: 75px; height: 75px; padding: 11px; font-size: 8px; border-width: 4px; }
+      .trust-section { padding-bottom: 28px; }
+      .trust-grid { grid-template-columns: 1fr 1fr; padding: 10px; border-radius: 21px; }
+      .trust-item { gap: 9px; padding: 10px 7px; border-right: 0; }
+      .trust-item:nth-child(odd) { border-right: 1px solid #edf1f6; }
+      .trust-item:nth-child(-n+2) { border-bottom: 1px solid #edf1f6; }
+      .icon-tile { width: 36px; height: 36px; border-radius: 12px; }
+      .icon-tile svg { width: 17px; height: 17px; }
+      .trust-item strong { font-size: 10px; }
+      .trust-item small { font-size: 8px; }
+      section.content-section { padding: 69px 0; }
+      .section-heading { margin-bottom: 26px; }
+      .section-heading p { font-size: 11px; }
+      .schedule-intro { min-height: 235px; padding: 24px; border-radius: 27px 27px 27px 10px; }
+      .schedule-intro h3 { font-size: 26px; }
+      .schedule-cards { grid-template-columns: 1fr; gap: 12px; }
+      .schedule-card { min-height: 255px; padding: 22px; border-radius: 24px; }
+      .schedule-card h3 { margin-top: 17px; font-size: 20px; }
+      .about-grid { grid-template-columns: 1fr; gap: 33px; }
+      .about-visual { min-height: 360px; margin-right: 5px; }
+      .about-photo { inset: 0 16px 18px 0; border-radius: 28px 28px 28px 10px; }
+      .about-stamp { padding: 12px 14px; border-radius: 17px; }
+      .about-stamp .stamp-icon { width: 34px; height: 34px; }
+      .about-caption { left: 18px; bottom: 17px; }
+      .about-points { gap: 9px; margin-top: 21px; }
+      .about-point { padding: 11px; gap: 8px; border-radius: 15px; }
+      .about-point-icon { width: 30px; height: 30px; border-radius: 10px; }
+      .about-point strong { font-size: 10px; }
+      .about-point small { font-size: 8px; }
+      .fleet-grid { grid-template-columns: 1fr; gap: 12px; }
+      .fleet-card { min-height: 300px; border-radius: 26px; }
+      .fleet-card-content { left: 20px; right: 20px; bottom: 19px; }
+      .fleet-card h3 { font-size: 20px; }
+      .fleet-note { font-size: 9px; }
+      .booking-wrap { grid-template-columns: 1fr; gap: 23px; padding: 25px 16px 16px; border-radius: 28px; }
+      .booking-info { padding: 3px 5px 0; }
+      .booking-info p { margin: 12px 0 19px; }
+      .booking-contact { gap: 9px; }
+      .contact-line { font-size: 11px; }
+      .booking-form { padding: 19px 14px; border-radius: 22px; }
+      .form-grid { grid-template-columns: 1fr; gap: 11px; }
+      .field.full { grid-column: auto; }
+      .faq-grid { grid-template-columns: 1fr; gap: 18px; }
+      .faq-aside { position: static; padding: 24px; border-radius: 24px 24px 24px 10px; }
+      .faq-aside h3 { font-size: 21px; }
+      summary { padding: 15px; font-size: 11px; }
+      details p { padding: 0 15px 15px; font-size: 10px; }
+      .footer-top { flex-direction: column; gap: 26px; }
+      .footer-links { width: 100%; justify-content: space-between; gap: 18px; }
+      .footer-bottom { flex-direction: column; gap: 7px; }
+      .floating-contact { right: 12px; bottom: 12px; gap: 7px; }
+      .floating-contact a { width: 44px; height: 44px; border-radius: 14px; }
+    }
+    @media (max-width: 390px) {
+      .container { width: calc(100% - 26px); }
+      .brand-subtitle { letter-spacing: .1em; }
+      .hero-actions { gap: 8px; }
+      .hero-actions .btn { font-size: 10px; }
+      .floating-route { width: 205px; }
+      .day { padding: 9px 11px; font-size: 10px; }
+      .footer-links { gap: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти до основного вмісту</a>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-note"><span class="live-dot" aria-hidden="true"></span> Приймаємо заявки на поїздки Україна ⇄ Чехія</div>
+      <a class="topbar-contact" href="tel:+380986063365">Швидкий зв’язок: <strong>+380 98 606 33 65</strong></a>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="KvasBus — на головну">
+        <span class="brand-symbol" aria-hidden="true">K</span>
+        <span><span class="brand-title">Kvas<span>Bus</span></span><span class="brand-subtitle">Ваш шлях між країнами</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Головна навігація">
+        <a href="#schedule">Графік поїздок</a>
+        <a href="#about">Про нас</a>
+        <a href="#fleet">Наш транспорт</a>
+        <a href="#faq">Питання</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="phone-link" href="tel:+380986063365">+380 98 606 33 65</a>
+        <a class="btn btn-primary" href="#booking">Забронювати місце <span aria-hidden="true">↗</span></a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Відкрити меню" aria-controls="navLinks" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="heroTitle">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Пасажирські перевезення</div>
+          <h1 id="heroTitle">Україна <span class="period">⇄</span><br><span class="blue">Чехія.</span><br>Дорога ближче.</h1>
+          <p class="hero-lead">Подорожуйте між Україною та Чехією з KvasBus. Перевірте дні виїзду, оберіть напрямок і залиште заявку — деталі поїздки можна узгодити безпосередньо з перевізником.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#booking">Залишити заявку <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-blue" href="tel:+380986063365">Зателефонувати</a>
+          </div>
+          <div class="hero-proof"><span class="proof-check" aria-hidden="true">✓</span><span>Два напрямки · Чіткий графік · Прямий зв’язок із перевізником</span></div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="hero-glow" aria-hidden="true"></div>
+          <div class="hero-photo">
+            <img src="assets/hero-sprinter.webp" alt="Сріблястий пасажирський мікроавтобус на мальовничій дорозі" fetchpriority="high" width="1536" height="1024" />
+            <div class="photo-caption"><div><strong>Подорожуйте з KvasBus</strong><span>Україна 🇺🇦 — Чехія 🇨🇿</span></div><div class="photo-flags">🇺🇦 ⇄ 🇨🇿</div></div>
+          </div>
+          <div class="floating-route" aria-label="Дні виїзду в обох напрямках">
+            <div class="route-heading"><span>Міжнародний напрямок</span><span aria-hidden="true">↗</span></div>
+            <div class="route-track" aria-hidden="true"></div>
+            <div class="route-names"><div>Україна<small>Вт · Сб</small></div><div style="text-align:right">Чехія<small>Чт · Нд</small></div></div>
+          </div>
+          <div class="round-stamp" aria-hidden="true">КОМФОРТ<br>У КОЖНІЙ<br>ПОЇЗДЦІ ✦</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-section">
+      <div class="container">
+        <div class="trust-grid reveal">
+          <div class="trust-item"><span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12V7a3 3 0 0 1 3-3h5a4 4 0 0 1 4 4v4M4 12h15a2 2 0 0 1 2 2v2H3v-2a2 2 0 0 1 1-2Z"/><path d="M6 16v3m13-3v3M7 19h1m9 0h1"/></svg></span><span><strong>Комфорт</strong><small>Зручність у дорозі</small></span></div>
+          <div class="trust-item"><span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 20 6v5c0 5-3.4 8.3-8 10-4.6-1.7-8-5-8-10V6l8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-4.8"/></svg></span><span><strong>Надійність</strong><small>Прямий зв’язок із перевізником</small></span></div>
+          <div class="trust-item"><span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 21 7v5c0 4.4-3.2 7.6-9 9-5.8-1.4-9-4.6-9-9V7l9-4Z"/><path d="M9 12h6"/></svg></span><span><strong>Безпека</strong><small>Увага до кожної поїздки</small></span></div>
+          <div class="trust-item"><span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><span><strong>Зручний графік</strong><small>Виїзди двічі на тиждень</small></span></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="content-section schedule-section" id="schedule" aria-labelledby="scheduleTitle">
+      <div class="container">
+        <div class="section-heading center reveal">
+          <div class="section-eyebrow">Плануйте заздалегідь</div>
+          <h2 id="scheduleTitle">Графік, який легко запам’ятати</h2>
+          <p>Регулярні дні виїзду в обох напрямках. Щоб уточнити найближчу дату та наявність місць, залиште заявку або зв’яжіться з перевізником.</p>
+        </div>
+        <div class="schedule-layout">
+          <div class="schedule-intro reveal">
+            <div><div class="intro-label">Ваш маршрут</div><h3>Україна та Чехія — ближче, ніж здається.</h3><p>Оберіть напрямок і день виїзду. Деталі поїздки можна узгодити безпосередньо з KvasBus.</p></div>
+            <div class="mini-route"><span>🇺🇦 Україна</span><span class="route-dash" aria-hidden="true"></span><span>🇨🇿 Чехія</span></div>
+          </div>
+          <div class="schedule-cards">
+            <article class="schedule-card ua reveal">
+              <div class="card-top"><span class="flag-chip" aria-hidden="true">🇺🇦</span><span class="direction-tag">Україна → Чехія</span></div>
+              <h3>Виїзд з України</h3><p>Регулярні дні відправлення</p>
+              <div class="day-list"><span class="day">Вівторок</span><span class="day">Субота</span></div>
+              <div class="schedule-foot"><span class="foot-dot" aria-hidden="true"></span> Двічі на тиждень</div>
+            </article>
+            <article class="schedule-card cz reveal">
+              <div class="card-top"><span class="flag-chip" aria-hidden="true">🇨🇿</span><span class="direction-tag">Чехія → Україна</span></div>
+              <h3>Виїзд із Чехії</h3><p>Регулярні дні відправлення</p>
+              <div class="day-list"><span class="day">Четвер</span><span class="day">Неділя</span></div>
+              <div class="schedule-foot"><span class="foot-dot" aria-hidden="true"></span> Двічі на тиждень</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section about-section" id="about" aria-labelledby="aboutTitle">
+      <div class="container about-grid">
+        <div class="about-visual reveal">
+          <div class="about-photo"><img src="assets/prague-scenic.webp" alt="Вечірня панорама Праги, Карлів міст і річка Влтава" loading="lazy" width="1100" height="760" /><div class="about-caption"><strong>Україна 🇺🇦 ⇄ Чехія 🇨🇿</strong><span>Міжнародні пасажирські перевезення</span></div></div>
+          <div class="about-stamp"><span class="stamp-icon" aria-hidden="true">↔</span><span><strong>Два напрямки</strong><small>Зручний графік щотижня</small></span></div>
+        </div>
+        <div class="about-copy reveal">
+          <div class="section-eyebrow">KvasBus · Про перевізника</div>
+          <h2 id="aboutTitle">Важливо не лише куди. Важливо — як ви дістанетесь.</h2>
+          <p>KvasBus — пасажирські перевезення між Україною та Чехією. Ми прагнемо, щоб організація поїздки була зрозумілою: ви обираєте напрямок, зв’язуєтесь із перевізником та узгоджуєте деталі перед виїздом.</p>
+          <div class="about-points">
+            <div class="about-point"><span class="about-point-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 13V7a3 3 0 0 1 3-3h6a4 4 0 0 1 4 4v5M3 13h16a2 2 0 0 1 2 2v2H2v-2a2 2 0 0 1 1-2Z"/></svg></span><span><strong>Комфорт</strong><small>Зручність під час поїздки</small></span></div>
+            <div class="about-point"><span class="about-point-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 20 6v5c0 5-3.4 8.3-8 10-4.6-1.7-8-5-8-10V6l8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-4.8"/></svg></span><span><strong>Надійність</strong><small>Можливість прямого контакту</small></span></div>
+            <div class="about-point"><span class="about-point-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8m0-12.8L5.6 18.4"/></svg></span><span><strong>Зрозумілий графік</strong><small>Дні виїзду вказані на сайті</small></span></div>
+            <div class="about-point"><span class="about-point-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4zM8 2v6m8-6v6M4 10h16"/></svg></span><span><strong>Просте бронювання</strong><small>Заявка через сайт або телефоном</small></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section fleet-section" id="fleet" aria-labelledby="fleetTitle">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-eyebrow">Транспорт</div>
+          <h2 id="fleetTitle">Комфорт починається з дороги</h2>
+          <p>У візуальній презентації KvasBus використані зображення мікроавтобусів Mercedes-Benz Sprinter та пасажирського салону.</p>
+        </div>
+        <div class="fleet-grid">
+          <article class="fleet-card reveal"><img src="assets/fleet-sprinters.webp" alt="Два мікроавтобуси Mercedes-Benz Sprinter на тлі вечірньої Праги" loading="lazy" width="1440" height="795" /><div class="fleet-card-content"><span class="fleet-label">KvasBus · Автомобілі</span><h3>Mercedes-Benz Sprinter</h3><p>Міжнародні пасажирські перевезення</p></div></article>
+          <article class="fleet-card reveal"><img src="assets/sprinter-interior.webp" alt="Пасажирський салон мікроавтобуса з рядами сидінь" loading="lazy" width="1350" height="480" /><div class="fleet-card-content"><span class="fleet-label">KvasBus · Салон</span><h3>Простір для поїздки</h3><p>Приклад оформлення пасажирського салону</p></div></article>
+        </div>
+        <p class="fleet-note">Зображення згенеровані для дизайн-концепції та є ілюстративними. Вони не підтверджують конкретні автомобілі чи комплектацію реального автопарку.</p>
+      </div>
+    </section>
+
+    <section class="content-section booking-section" id="booking" aria-labelledby="bookingTitle">
+      <div class="container">
+        <div class="booking-wrap reveal">
+          <div class="booking-info">
+            <div class="section-eyebrow">Бронювання</div>
+            <h2 id="bookingTitle">Залиште заявку на поїздку</h2>
+            <p>Заповніть коротку форму. Ми підготуємо повідомлення з вашими даними — його можна буде перевірити та надіслати перевізнику у WhatsApp.</p>
+            <div class="booking-contact">
+              <a class="contact-line" href="tel:+380986063365"><span class="contact-icon" aria-hidden="true">☎</span> +380 98 606 33 65</a>
+              <a class="contact-line" href="https://t.me/kvasbus" target="_blank" rel="noopener noreferrer"><span class="contact-icon" aria-hidden="true">➤</span> Telegram · @kvasbus</a>
+              <a class="contact-line" href="https://www.instagram.com/kvasvolodimir/" target="_blank" rel="noopener noreferrer"><span class="contact-icon" aria-hidden="true">◎</span> Instagram · @kvasvolodimir</a>
+            </div>
+          </div>
+          <form class="booking-form" id="bookingForm">
+            <div class="form-heading"><div><h3>Деталі вашої поїздки</h3><p>Заповніть поля, позначені зірочкою</p></div><span class="form-step">Заявка · 1/1</span></div>
+            <div class="form-grid">
+              <div class="field"><label for="fullname">Ваше ім’я *</label><input id="fullname" name="fullname" autocomplete="name" placeholder="Як до вас звертатися?" required maxlength="70" /></div>
+              <div class="field"><label for="phone">Номер телефону *</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+380 ..." required maxlength="30" /></div>
+              <div class="field"><label for="direction">Напрямок *</label><select id="direction" name="direction" required><option value="" selected disabled>Оберіть напрямок</option><option value="Україна → Чехія">Україна → Чехія</option><option value="Чехія → Україна">Чехія → Україна</option></select></div>
+              <div class="field"><label for="date">Бажана дата</label><input id="date" name="date" type="date" /></div>
+              <div class="field"><label for="from">Місто відправлення</label><input id="from" name="from" placeholder="Вкажіть місто" maxlength="80" /></div>
+              <div class="field"><label for="to">Місто прибуття</label><input id="to" name="to" placeholder="Вкажіть місто" maxlength="80" /></div>
+              <div class="field"><label for="people">Кількість пасажирів</label><select id="people" name="people"><option value="1">1 пасажир</option><option value="2">2 пасажири</option><option value="3">3 пасажири</option><option value="4">4 пасажири</option><option value="5 або більше">5 або більше</option></select></div>
+              <div class="field"><label for="contact">Як зручніше відповісти?</label><select id="contact" name="contact"><option>Телефон</option><option>WhatsApp</option><option>Telegram</option></select></div>
+              <div class="field full"><label for="comment">Коментар · необов’язково</label><textarea id="comment" name="comment" placeholder="Додаткові побажання або питання" maxlength="500"></textarea></div>
+            </div>
+            <button class="btn btn-primary form-submit" type="submit">Підготувати заявку <span aria-hidden="true">↗</span></button>
+            <div class="form-error" id="formError" role="alert"></div>
+            <div class="form-hint">WhatsApp відкриється з підготовленим повідомленням. Заявка буде надіслана лише після вашого підтвердження в месенджері.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section faq-section" id="faq" aria-labelledby="faqTitle">
+      <div class="container faq-grid">
+        <aside class="faq-aside reveal">
+          <div class="faq-bubble" aria-hidden="true">✦</div>
+          <div class="section-eyebrow">Потрібна допомога?</div>
+          <h3 id="faqTitle">Підкажемо з організацією поїздки</h3>
+          <p>Уточніть маршрут, найближчу дату, наявність місць та умови поїздки безпосередньо у перевізника.</p>
+          <a class="btn btn-blue" href="tel:+380986063365">Зв’язатися з KvasBus</a>
+        </aside>
+        <div class="faq-list reveal">
+          <details open><summary>У які дні виїзд з України?</summary><p>Виїзди з України відбуваються у вівторок та суботу.</p></details>
+          <details><summary>У які дні виїзд із Чехії?</summary><p>Виїзди з Чехії відбуваються у четвер та неділю.</p></details>
+          <details><summary>Як забронювати місце?</summary><p>Зателефонуйте за номером +380 98 606 33 65 або заповніть форму на сайті та надішліть підготовлене повідомлення через WhatsApp.</p></details>
+          <details><summary>З яких саме міст здійснюється відправлення?</summary><p>Перелік міст і точки посадки потрібно уточнити безпосередньо у перевізника. Вкажіть бажані міста у формі заявки.</p></details>
+          <details><summary>Де дізнатися вартість поїздки?</summary><p>Актуальну вартість можна уточнити безпосередньо у перевізника телефоном або в Telegram.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#top"><span class="brand-symbol" aria-hidden="true">K</span><span><span class="brand-title">Kvas<span>Bus</span></span><span class="brand-subtitle">Ваш шлях між країнами</span></span></a>
+          <p>Пасажирські перевезення між Україною та Чехією. Перевірте графік виїздів і зв’яжіться з нами для узгодження поїздки.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col"><strong>Навігація</strong><a href="#schedule">Графік поїздок</a><a href="#about">Про нас</a><a href="#fleet">Транспорт</a><a href="#booking">Бронювання</a></div>
+          <div class="footer-col"><strong>Контакти</strong><a href="tel:+380986063365">+380 98 606 33 65</a><a href="https://t.me/kvasbus" target="_blank" rel="noopener noreferrer">Telegram · @kvasbus</a><a href="https://www.instagram.com/kvasvolodimir/" target="_blank" rel="noopener noreferrer">Instagram · @kvasvolodimir</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> KvasBus. Усі права захищені.</span><span>Україна 🇺🇦 ⇄ Чехія 🇨🇿</span></div>
+    </div>
+  </footer>
+
+  <div class="floating-contact" aria-label="Швидкі контакти">
+    <a class="phone-float" href="tel:+380986063365" aria-label="Зателефонувати KvasBus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-3 2a15 15 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2C9 21 3 15 3 6a2 2 0 0 1 2-2Z"/></svg></a>
+    <a href="https://t.me/kvasbus" target="_blank" rel="noopener noreferrer" aria-label="Відкрити Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m21.7 4.4-3.2 15.1c-.2 1.1-.8 1.4-1.7.9l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-8c.4-.3-.1-.5-.6-.2L6.4 13.5l-4.6-1.4c-1-.3-1-1 .2-1.4L20 4.1c.9-.3 1.8.2 1.7.3Z"/></svg></a>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      const form = document.getElementById('bookingForm');
+      const errorBox = document.getElementById('formError');
+      const toast = document.getElementById('toast');
+      const dateField = document.getElementById('date');
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const today = new Date();
+      dateField.min = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+
+      const closeMenu = () => {
+        navLinks.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Відкрити меню');
+        menuToggle.textContent = '☰';
+      };
+
+      menuToggle.addEventListener('click', () => {
+        const open = !navLinks.classList.contains('open');
+        navLinks.classList.toggle('open', open);
+        document.body.classList.toggle('menu-open', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Закрити меню' : 'Відкрити меню');
+        menuToggle.textContent = open ? '×' : '☰';
+      });
+      navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+      window.addEventListener('resize', () => { if (window.innerWidth > 760) closeMenu(); });
+
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      } else {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      }
+
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        errorBox.classList.remove('show');
+        errorBox.textContent = '';
+        if (!form.reportValidity()) return;
+
+        const data = new FormData(form);
+        const value = key => String(data.get(key) || '').trim();
+        const phone = value('phone');
+        if (phone.replace(/[\s()+.-]/g, '').length < 7) {
+          errorBox.textContent = 'Перевірте номер телефону — він виглядає закоротким.';
+          errorBox.classList.add('show');
+          document.getElementById('phone').focus();
+          return;
+        }
+
+        const lines = [
+          'Заявка на поїздку KvasBus',
+          `Ім’я: ${value('fullname')}`,
+          `Телефон: ${phone}`,
+          `Напрямок: ${value('direction')}`,
+          `Бажана дата: ${value('date') || 'Не вказана'}`,
+          `Місто відправлення: ${value('from') || 'Не вказано'}`,
+          `Місто прибуття: ${value('to') || 'Не вказано'}`,
+          `Кількість пасажирів: ${value('people')}`,
+          `Бажаний спосіб зв’язку: ${value('contact')}`,
+          `Коментар: ${value('comment') || 'Немає'}`
+        ];
+        const message = encodeURIComponent(lines.join('\n'));
+        const whatsappUrl = `https://wa.me/380986063365?text=${message}`;
+        const opened = window.open(whatsappUrl, '_blank');
+        if (opened) opened.opener = null;
+        if (!opened) {
+          toast.textContent = 'Браузер заблокував нове вікно. Скористайтеся кнопкою WhatsApp або дозволіть спливаючі вікна.';
+          toast.classList.add('show');
+          window.setTimeout(() => toast.classList.remove('show'), 4800);
+        } else {
+          toast.textContent = 'Повідомлення підготовлено. Перевірте його у WhatsApp перед надсиланням.';
+          toast.classList.add('show');
+          window.setTimeout(() => toast.classList.remove('show'), 4200);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
